@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+
+
+    <ion-item color="primary">
+      <ion-label>AUTORES</ion-label>
+
+    </ion-item>
+
+
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid class="ion-margin-top">
+    <ion-item lines="none" color="light">
+      <ion-label class="title"></ion-label>
+          </ion-item>
+    <ion-row>
+      <ion-slides [options]="slideOpts1">
+        <ion-slide *ngFor="let item of featuredItems">
+          <ion-card class="featured" [routerLink]="['/', 'tabs', 'items', item.id]">
+            <ion-card-header>
+              <img [src]="item?.img" />              
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>
+                  {{item?.name}}
+                  <p><ion-text color="tertiary">{{item?.category}}</ion-text></p>
+                </ion-label>
+                <ion-text class="price" slot="end" color="primary"><b></b></ion-text>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
